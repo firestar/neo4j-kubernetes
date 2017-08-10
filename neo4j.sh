@@ -8,11 +8,12 @@ kubectl delete statefulsets,pods,persistentvolumes,persistentvolumeclaims,servic
 # Make persistent volumes and (correctly named) claims. We must create the
 # claims here manually even though that sounds counter-intuitive. For details
 # see https://github.com/kubernetes/contrib/pull/1295#issuecomment-230180894.
-for i in $(seq 0 2); do
+for i in $(seq 0 $1); do
   cat <<EOF | kubectl create -f -
 kind: PersistentVolume
 apiVersion: v1
 metadata:
+  namespace: test-app
   name: pv${i}
   labels:
     type: local
@@ -30,6 +31,7 @@ EOF
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
+  namespace: test-app
   name: datadir-neo4j-core-${i}
   labels:
     app: neo4j
