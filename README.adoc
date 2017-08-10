@@ -27,7 +27,7 @@ We'd typically have a small number of Core servers in a cluster and they can han
 Run the following commands to create the Core servers:
 
 ```
-$ ./neo4j.sh
+$ ./neo4j.sh (number of core servers) (namespace) (size of volume)
 ...
 persistentvolume "pv0" created
 persistentvolumeclaim "datadir-neo4j-core-0" created
