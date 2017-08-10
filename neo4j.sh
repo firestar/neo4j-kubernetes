@@ -13,7 +13,7 @@ for i in $(seq 0 $1); do
 kind: PersistentVolume
 apiVersion: v1
 metadata:
-  namespace: test-app
+  namespace: $2
   name: pv${i}
   labels:
     type: local
@@ -31,7 +31,7 @@ EOF
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  namespace: test-app
+  namespace: $2
   name: datadir-neo4j-core-${i}
   labels:
     app: neo4j
