@@ -20,7 +20,7 @@ metadata:
     app: neo4j
 spec:
   capacity:
-    storage: 1Gi
+    storage: $3Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
@@ -40,7 +40,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 1Gi
+      storage: $3Gi
 EOF
 done;
 
